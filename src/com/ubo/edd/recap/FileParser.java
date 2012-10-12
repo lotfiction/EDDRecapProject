@@ -19,10 +19,13 @@ public class FileParser {
 			String line;
 			do {
 				line = bufferFile.readLine();
-				handler.defaultLine(line);
+				if (line != null) {
+					handler.defaultLine(line);
+				}
 			} while (line != null);
 			System.out.println("Le fichier \"" + file + "\" contient "
-					+ ((LineCountContentHandler) handler).getPageCount()+" ligne(s).");
+					+ ((LineCountContentHandler) handler).getPageCount()
+					+ " ligne(s).");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
