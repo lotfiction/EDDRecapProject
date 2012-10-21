@@ -18,6 +18,7 @@ public class Exemple {
 
 	public Exemple() {
 		parser = new FileParser();
+		System.out.println("Test");
 		System.out.println("Exemple d'utlisation de FileParser :");
 		exp01();
 	}
