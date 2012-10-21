@@ -2,8 +2,6 @@ package com.ubo.edd.recap;
 
 import java.io.File;
 
-import com.ubo.edd.recap.v1.LineCountContentHandler;
-
 public class Exemple {
 
 	private FileParser parser;
@@ -16,14 +14,23 @@ public class Exemple {
 		parser.parse(file, handler);
 	}
 
-	public Exemple() {
-		parser = new FileParser();
-		System.out.println("Test");
+	void exp02(String[] params) {
+		file = new File("tests/test.txt");
+		handler = new LineCountContentHandler(params);
+		parser.parse(file, handler);
+	}
+
+	public Exemple(String[] args) {
+		parser = new FileParser(args);
 		System.out.println("Exemple d'utlisation de FileParser :");
-		exp01();
+		if (args.length == 0) {
+			exp01();
+		} else {
+			exp02(args);
+		}
 	}
 
 	public static void main(String[] args) {
-		new Exemple();
+		new Exemple(args);
 	}
 }
