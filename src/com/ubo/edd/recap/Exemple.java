@@ -14,6 +14,7 @@ public class Exemple {
 		file = new File("tests/test.txt");
 		handler = new LineCountContentHandler();
 		parser.parse(file, handler);
+		
 	}
 
 	public Exemple() {
