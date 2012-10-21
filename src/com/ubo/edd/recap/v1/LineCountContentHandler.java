@@ -6,7 +6,7 @@ import com.ubo.edd.recap.ContentHandler;
  * 
  * classe pocalculer le nombre des lignes
  * 
- * @author ELMAATAOUI YASSINE
+ * @author ELMAATAOUI YASSINE DOSI
  * 
  */
 public class LineCountContentHandler implements ContentHandler {
