@@ -24,8 +24,11 @@ public class FileParser {
 				}
 			} while (line != null);
 			System.out.println("Le fichier \"" + file + "\" contient "
-					+ ((LineCountContentHandler) handler).getPageCount()
+					+ ((LineCountContentHandler) handler).getLineCount()
 					+ " ligne(s).");
+			System.out.println("Dont "
+					+ ((LineCountContentHandler) handler).getCommCount()
+					+ " commentaire(s).");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
