@@ -27,5 +27,11 @@ public class LineCountContentHandler implements ContentHandler {
 			commCount++;
 		}
 	}
+	@Override
+	public void callback(String balise) {
+		// TODO Auto-generated method stub
+		System.out.println(balise);
+	}
+
 
 }

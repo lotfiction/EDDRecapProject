@@ -55,7 +55,31 @@
 			fork="true" />
 	</target>
 
+	<!-- Lancement des tests unitaires. -->
+	<target name="junit" depends="compile-test" >
+		<mkdir dir="${test.results.dir}" />
+		<junit>
+			<classpath>
+				<pathelement path="${bin.dir}" />
+				<pathelement path="${bin.test.dir}" />
+				<pathelement path="${test.classpath}" />
+			</classpath>
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<batchtest todir="${test.results.dir}">
+				<fileset dir="${bin.test.dir}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
 	
+		<mkdir dir="${test.reports.dir}" />
+		<junitreport todir="${test.reports.dir}">
+			<fileset dir="${test.results.dir}">
+			<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${test.reports.dir}" />
+		</junitreport>
+	</target>
+
 	<!-- Génération de la documentation -->
 	<target name="doc" depends="compile">
 		<javadoc sourcepath="${src.dir}"
@@ -69,6 +93,7 @@
 		</javadoc>
 	</target>
 
-	
+	<!-- Jar, tests et documentation -->
+	<target name="all" depends="jar, junit, doc" />
 
 </project>
